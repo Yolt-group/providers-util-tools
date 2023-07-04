@@ -1,0 +1,1 @@
+alter table client add column sbi_code varchar(256);

@@ -1,0 +1,35 @@
+{
+  "aisSiteDetails": [
+    {
+      "name": "Virgin Money",
+      "providerKey": "VIRGIN_MONEY_MERGED_APIS",
+      "providerType": "DIRECT_CONNECTION",
+      "providerBehaviours": [
+        "STATE"
+      ],
+      "groupingBy": "Virgin Money",
+      "id": "8a68103d-e277-4115-8283-d8db3e0c815d",
+      "accountTypeWhiteList": [
+        "CURRENT_ACCOUNT",
+        "SAVINGS_ACCOUNT"
+      ],
+      "availableCountries": [
+        "GB"
+      ],
+      "consentExpiryInDays": 90,
+      "isTestSite": false,
+      "consentBehavior": [],
+      "externalId": null,
+      "usesStepTypes": {
+        "AIS": [
+          "REDIRECT"
+        ]
+      },
+      "loginRequirements": [
+        "REDIRECT"
+      ],
+      "testSite": false
+    }
+  ],
+  "pisSiteDetails": []
+}

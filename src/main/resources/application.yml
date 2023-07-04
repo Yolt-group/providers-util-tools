@@ -1,0 +1,109 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /clients
+  tomcat:
+    threads:
+      max: 4
+info:
+  appName: clients
+  appVersion: 0.1
+logging:
+  level:
+    ROOT: INFO
+spring:
+  main:
+    banner-mode: "off"
+  servlet:
+    multipart:
+      max-file-size: "10MB"
+      max-request-size: "11MB"
+      enabled: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  kafka:
+    consumer:
+      group-id: clients
+    producer:
+      group-id: clients
+  flyway:
+    baseline-on-migrate: true
+yolt:
+  invites:
+    expiration-hours: 24
+    max-client-invites: 30
+    resend-timeout: 5
+  commons:
+    error-handling:
+      prefix: CLS
+  vault:
+    enabled: true
+    secret:
+      enabled: true
+    aws:
+      enabled: true
+      vault-creds-file: "/vault/secrets/aws_qseal"
+  client-token:
+    requester:
+      enabled: false
+      vault-based-secret:
+        enabled: false
+
+    verification:
+      enabled: true
+  jira:
+    url: https://yolt.atlassian.net
+    user: yts-clients@yolt.com
+    enabled: false
+    max_open_tickets: 10
+  web-hooks:
+    outbound-check: true
+  redirectUrl:
+    autoRegistration:
+      enabled: false
+clients:
+  amazon-ses:
+    enabled: true
+management:
+  endpoint:
+    health:
+      group:
+        readiness:
+          include: readinessState, db, kafka
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus
+      base-path: /actuator
+  server:
+    port: 8444
+    ssl:
+      enabled: true
+      key-store: /vault/secrets/keystore.p12
+      key-alias: keystore
+      key-store-password: dontchangeit
+service:
+  tokens:
+    url: https://tokens/tokens
+  site-management:
+    url: https://site-management/site-management
+  crypto:
+    url: https://crypto/crypto
+  providers:
+    url: https://providers/providers
+  yoltbank:
+    url: http://yoltbank/yoltbank
+  webhooks-yts:
+    url: https://webhooks-yts/webhooks-yts
+  dev-portal:
+    url: https://dev-portal
+  users:
+    url: https://users/users
+route:
+  content:
+    site-icons: /content/images/sites/icons/{siteId}.png
+
+springdoc:
+  override-with-generic-response: false

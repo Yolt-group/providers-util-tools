@@ -1,0 +1,2 @@
+ALTER TABLE client_group_certificates
+    DROP CONSTRAINT client_group_certificates_client_group_id_name_key;

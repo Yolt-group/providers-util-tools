@@ -1,0 +1,1 @@
+create index if not exists ind_client_group_admin_invitation_code on client_group_admin_invitation(code, used);
